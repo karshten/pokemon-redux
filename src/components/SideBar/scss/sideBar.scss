@@ -3,8 +3,22 @@
     width: 360px;
     height: 100vh;
     border-right: 6px solid var(--black);
+    position: relative;
+
+    & .pokeball {
+        position: absolute;
+        right: -28px;
+        top: -30px;
+        width: 37px;
+        height: 37px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 6px solid var(--black);
+    }
 
     &__content {
-        width: 100%;
+        width: 220px;
+        margin-left: auto;
+        margin-right: 60px;
     }
 }
