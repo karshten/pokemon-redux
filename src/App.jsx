@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="container">
+      <div className="wrapper">
         <Routes>
           <Route path="/pokemons" element={<PokemonsList />} />
           <Route path="/help" element={<h2>Help info...</h2>} />
