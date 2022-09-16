@@ -9,8 +9,9 @@ function App() {
     <div className="App">
       <Header />
       <div className="wrapper">
-        <SideBar/>
+        <SideBar />
         <Routes>
+          <Route path="/" element={<PokemonsList />} />
           <Route path="/pokemons" element={<PokemonsList />} />
           <Route path="/help" element={<h2>Help info...</h2>} />
           <Route path="/contacts" element={<h2>Contacts...</h2>} />
