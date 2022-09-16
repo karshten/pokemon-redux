@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import { Header } from "./components/index"
+import { SideBar } from "./components/SideBar/SideBar"
 import { PokemonsList } from "./pages"
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="wrapper">
+        <SideBar/>
         <Routes>
           <Route path="/pokemons" element={<PokemonsList />} />
           <Route path="/help" element={<h2>Help info...</h2>} />

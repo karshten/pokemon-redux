@@ -137,6 +137,7 @@ img {
 }
 
 .wrapper {
+    display: flex;
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -148,7 +149,6 @@ img {
 
 .main-container {
     max-width: 1030px;
-    margin-left: auto;
 }
 
 :root {

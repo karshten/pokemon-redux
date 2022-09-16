@@ -1,0 +1,10 @@
+.sideBar {
+    padding: 32px 0;
+    width: 360px;
+    height: 100vh;
+    border-right: 6px solid var(--black);
+
+    &__content {
+        width: 100%;
+    }
+}
