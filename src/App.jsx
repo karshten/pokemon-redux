@@ -1,14 +1,19 @@
 import { Routes, Route } from "react-router-dom"
-import { Header } from "./components/Header/Header"
+import { Header } from "./components/index"
+import { PokemonsList } from "./pages"
 
 function App() {
 
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/pokemons" element={<div>main</div>} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/pokemons" element={<PokemonsList />} />
+          <Route path="/help" element={<h2>Help info...</h2>} />
+          <Route path="/contacts" element={<h2>Contacts...</h2>} />
+        </Routes>
+      </div>
     </div>
   )
 }
