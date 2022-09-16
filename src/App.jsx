@@ -1,9 +1,14 @@
+import { Routes, Route } from "react-router-dom"
+import { Header } from "./components/Header/Header"
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Pokemon</h1>
+      <Header />
+      <Routes>
+        <Route path="/" element={<div>main</div>} />
+      </Routes>
     </div>
   )
 }
