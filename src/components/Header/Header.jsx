@@ -1,10 +1,23 @@
 import React from 'react'
 import './scss/header.scss'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const Header = () => {
   return (
-    <header>
+    <header className='header'>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/pokemons">Все покемоны</NavLink>
+          </li>
+          <li>
+            <NavLink to='/help'>Помощь</NavLink>
+          </li>
+          <li>
+            <NavLink to='/contacts'>Контакты</NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   )
 }
