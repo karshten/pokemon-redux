@@ -150,3 +150,10 @@ img {
     max-width: 1030px;
     margin-left: auto;
 }
+
+:root {
+    --black: #121212;
+    --gray: #3F3F3F;
+    --mid-gray: #6D6D6D;
+    --light-gray: #9A9A9A;
+}
