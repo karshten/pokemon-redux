@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPokemons } from '../../features/pokemons'
+import { PokemonItem } from './PokemonItem'
 import './scss/pokemons.scss'
 import { SortBy } from './SortBy'
 
@@ -11,16 +12,18 @@ export const PokemonsList = () => {
     useEffect(() => {
         dispatch(getPokemons())
 
-        return () => {}
+        return () => { }
     }, [])
 
     return (
         <main>
             <div className="main-container">
                 <SortBy />
-                {pokemonsList.length && pokemonsList.map(pokemon =>
-                    <div key={pokemon.name}>{pokemon.name}</div>
-                )}
+                <ul className='pokemons'>
+                    {pokemonsList?.length && pokemonsList?.map(pokemon =>
+                        <PokemonItem key={pokemon.name} pokemon={pokemon}/>
+                    )}
+                </ul>
             </div>
         </main>
     )
