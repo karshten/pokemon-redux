@@ -13,8 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<PokemonsList />} />
           <Route path="/pokemons" element={<PokemonsList />} />
-          <Route path="/help" element={<h2>Help info...</h2>} />
-          <Route path="/contacts" element={<h2>Contacts...</h2>} />
+          <Route path="/help" element={<div className="main-container"><h2>Help info...</h2></div>} />
+          <Route path="/contacts" element={<div className="main-container"><h2>Contacts...</h2></div>} />
         </Routes>
       </div>
     </div>
