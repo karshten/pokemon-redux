@@ -1,0 +1,18 @@
+.pokemon {
+
+    &__link-back {
+        margin-bottom: 32px;
+        display: inline-block;
+        text-decoration: none;
+        color: var(--gray);
+
+        & svg {
+            margin-right: 16px;
+        }
+    }
+
+    &__btn-back {
+        display: flex;
+        align-items: center;
+    }
+}
