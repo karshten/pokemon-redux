@@ -132,6 +132,10 @@ table {
     border-spacing: 0;
 }
 
+li {
+    list-style: none;
+}
+
 img {
     display: block;
 }
