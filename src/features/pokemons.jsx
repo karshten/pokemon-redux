@@ -12,13 +12,12 @@ export const getPokemons = createAsyncThunk(
         const data = await response.json()
 
         const results = [...data.results]
-        results.map(async (item) => {
-            const res = await fetch(item.url)
-            const data = await res.json()
-
-            dispatch(setPokemons({ ...data }))
-        })
-
+        const res = await Promise.all(results.map(async (item) => {
+            const itemResponse = await fetch(item.url)
+            const data = await itemResponse.json()
+            return data
+        }))
+        dispatch(setPokemons(res))
     }
 )
 
@@ -27,11 +26,7 @@ export const pokemonsSlice = createSlice({
     initialState,
     reducers: {
         setPokemons: (state, action) => {
-            state.pokemonsList =
-                [
-                    ...state.pokemonsList,
-                    action.payload
-                ]
+            state.pokemonsList = action.payload
         }
     },
     extraReducers: {
