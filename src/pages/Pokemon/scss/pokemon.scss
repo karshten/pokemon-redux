@@ -1,4 +1,5 @@
 .pokemon {
+    max-width: 680px;
 
     &__link-back {
         margin-bottom: 32px;
@@ -14,5 +15,17 @@
     &__btn-back {
         display: flex;
         align-items: center;
+    }
+
+    &__description {
+
+        & span {
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        & article {
+            line-height: 23px;
+        }
     }
 }

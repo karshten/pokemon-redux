@@ -25,7 +25,7 @@ export const getPokemonsDescription = createAsyncThunk(
         const descriptionRes = await fetch(payload)
         const descriptionData = await descriptionRes.json()
 
-        const output = Array.from(new Set(descriptionData.flavor_text_entries.map(item => item.flavor_text))).join('')
+        const output = Array.from(new Set(descriptionData.flavor_text_entries.map(item => item.language.name === 'en' ? item.flavor_text : ''))).join('')
 
         dispatch(setPokemonDescription(output))
     }
