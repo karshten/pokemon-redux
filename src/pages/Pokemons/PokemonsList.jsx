@@ -11,7 +11,7 @@ export const PokemonsList = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPokemons())
-        return () => { }
+        // return () => { }
     }, [])
 
     return (
