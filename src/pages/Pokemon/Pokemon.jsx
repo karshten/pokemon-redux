@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getPokemon } from '../../features/pokemon'
@@ -6,6 +6,7 @@ import { toggleSidebar } from '../../features/sideBar'
 import { PokemonItem } from '../../pages/Pokemons/PokemonItem'
 import './scss/pokemon.scss'
 import '../../pages/Pokemons/scss/pokemons.scss'
+import { PokemonInfoItem } from './PokemonInfoItem'
 
 const pokemonInfo = [
   "Внешность",
@@ -17,6 +18,8 @@ const pokemonInfo = [
 ]
 export const Pokemon = () => {
   const { id } = useParams()
+  const [fullDescription, setFullDescription] = useState(false)
+
   const dispatch = useDispatch()
   const pokemon = useSelector(state => state.pokemonDescription.pokemon)
 
@@ -46,16 +49,17 @@ export const Pokemon = () => {
         <div className='pokemon__description'>
           <article>
             <span>{pokemon.name}: </span>
-            {pokemon?.description}
+            {fullDescription ? pokemon?.description : pokemon?.description?.slice(0, 400) + '...'}
           </article>
+          <button onClick={() => setFullDescription(!fullDescription)}>{!fullDescription ? "full description..." : 'hide'}</button>
         </div>
 
         <div className="pokemon__info">
           <h3>Содержание</h3>
-          <ul>{pokemonInfo.map((item, idx) => <li>{idx+1}. {item}</li>)}</ul>
+          <ul>{pokemonInfo.map((item, idx) => <li key={item}>{idx+1}. {item}</li>)}</ul>
         </div>
 
-        
+        <PokemonInfoItem/>
       </div>
 
       <div className="pokemon__side-preview">
