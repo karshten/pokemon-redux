@@ -18,11 +18,11 @@ export const PokemonsList = () => {
         <main>
             <div className="main-container">
                 <SortBy />
-                <ul className='pokemons'>
+                {pokemonsList.length >= 20 && <ul className='pokemons'>
                     {pokemonsList?.length && pokemonsList?.map(pokemon =>
-                        <PokemonItem key={pokemon.name} pokemon={pokemon}/>
+                        <PokemonItem key={pokemon.name} pokemon={pokemon} />
                     )}
-                </ul>
+                </ul>}
             </div>
         </main>
     )
