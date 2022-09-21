@@ -27,6 +27,17 @@ export const pokemonsSlice = createSlice({
     reducers: {
         setPokemons: (state, action) => {
             state.pokemonsList = action.payload
+        },
+        sortByAttack: (state, action) => {
+            state.pokemonsList = [...state.pokemonsList].sort((a, b) =>
+                b.stats.find(item => item.stat.name === 'attack').base_stat
+                - a.stats.find(item => item.stat.name === 'attack').base_stat
+            )
+        },
+        sortByAlphabet: (state, action) => {
+            state.pokemonsList = [...state.pokemonsList].sort((a, b) => {
+                return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+            })
         }
     },
     extraReducers: {
@@ -36,5 +47,5 @@ export const pokemonsSlice = createSlice({
     }
 })
 
-export const { setPokemons } = pokemonsSlice.actions
+export const { setPokemons, sortByAttack, sortByAlphabet } = pokemonsSlice.actions
 export default pokemonsSlice.reducer

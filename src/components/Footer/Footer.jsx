@@ -31,7 +31,7 @@ export const Footer = () => {
                 <h2>Подпишитесь на нас!</h2>
                 <ul className='footer__icons'>
                     {icons.map(icon => (
-                        <a className='footer__link' href={icon.url}>
+                        <a key={icon.src} className='footer__link' href={icon.url}>
                             <img src={icon.src} alt="logo" />
                         </a>
                     ))}
