@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux"
 import { Routes, Route } from "react-router-dom"
-import { Header } from "./components/index"
-import { SideBar } from "./components/SideBar/SideBar"
+import { Header, Footer, SideBar } from "./components/index"
 import { Pokemon, PokemonsList } from "./pages"
 
 function App() {
@@ -20,6 +19,7 @@ function App() {
           <Route path="/contacts" element={<div className="main-container"><h2>Contacts...</h2></div>} />
         </Routes>
       </div>
+      <Footer />
     </div>
   )
 }

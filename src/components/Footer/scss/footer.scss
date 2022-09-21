@@ -1,0 +1,29 @@
+.footer {
+    background: var(--black);
+    width: 100%;
+    padding: 24px 0 32px;
+    display: flex;
+    justify-content: center;
+
+    & h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+    }
+
+    &__icons {
+        display: flex;
+        max-width: 290px;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__link {
+        transition: .3s ease;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
