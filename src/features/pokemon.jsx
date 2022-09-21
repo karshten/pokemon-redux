@@ -55,7 +55,7 @@ export const getPokemonAbilities = createAsyncThunk(
             }
         }))
 
-        dispatch(setPokemonProperty({ property: 'abilitiesDesc', output: output }))
+        dispatch(setPokemonProperty({ property: 'Abilities', output: output }))
     }
 )
 

@@ -35,7 +35,6 @@ export const Pokemon = () => {
   return (
     pokemon &&
     <div className="pokemon">
-
       <div className="pokemon__text-content">
         <Link to='/pokemons' className='pokemon__link-back'>
           <div className='pokemon__btn-back'>
@@ -56,10 +55,13 @@ export const Pokemon = () => {
 
         <div className="pokemon__info">
           <h3>Содержание</h3>
-          <ul>{pokemonInfo.map((item, idx) => <li key={item}>{idx+1}. {item}</li>)}</ul>
+          <ul>{pokemonInfo.map((item, idx) => <li key={item}>{idx + 1}. {item}</li>)}</ul>
         </div>
 
-        <PokemonInfoItem/>
+        <PokemonInfoItem info={{
+          articles: pokemon.Abilities,
+          title: 'Способности'
+        }} />
       </div>
 
       <div className="pokemon__side-preview">
