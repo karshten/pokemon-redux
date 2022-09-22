@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPokemons } from '../../features/pokemons'
+import { getCollection, setGenerations, setPokemons } from '../../features/pokemons'
 import { PokemonItem } from './PokemonItem'
 import './scss/pokemons.scss'
 import { SortBy } from './SortBy'
@@ -10,7 +10,8 @@ export const PokemonsList = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getPokemons())
+        dispatch(getCollection({endPoint: 'pokemon', reducer: setPokemons}))
+        // dispatch(getCollection({endPoint: 'generation', reducer: setGenerations}))
         return () => { }
     }, [])
 

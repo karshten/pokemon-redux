@@ -12,14 +12,14 @@ const sortByItems = [
         sortMethod: sortByAttack,
         value: 'Уровню силы'
     },
-    {
-        sortMethod: sortByAttack,
-        value: 'Рейтингу'
-    },
-    {
-        sortMethod: sortByAttack,
-        value: 'Популярности'
-    }
+    // {
+    //     sortMethod: sortByAttack,
+    //     value: 'Рейтингу'
+    // },
+    // {
+    //     sortMethod: sortByAttack,
+    //     value: 'Популярности'
+    // }
 ]
 export const SortBy = () => {
     const dispatch = useDispatch()

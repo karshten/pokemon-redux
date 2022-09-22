@@ -71,15 +71,13 @@
         }
     }
 
-    #open {
-        display: block;
+    .openNav {
         opacity: 1;
         transform: translateY(0);
         animation: dropDownOpen .3s ease;
     }
 
-    #closed {
-        display: none;
+    .closedNav {
         opacity: 0;
         transform: translateY(-500px);
         animation: dropDownClose .3s ease;
