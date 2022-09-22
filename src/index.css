@@ -141,17 +141,20 @@ img {
 }
 
 .wrapper {
+    position: relative;
     display: flex;
     max-width: 1440px;
     margin: 0 auto;
 }
 
 .container {
+    position: relative;
     max-width: 1180px;
     margin: 0 auto;
 }
 
 .main-container {
+    position: relative;
     max-width: 1030px;
 }
 
