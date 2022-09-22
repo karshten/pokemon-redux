@@ -1,10 +1,16 @@
 .pokemon {
+    min-height: 100vh;
     width: 1180px;
     padding: 35px 0 100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    & .pokemon-loader {
+        right: 47%;
+        top: 20%;
+    }
 
     & p,
     & article {
