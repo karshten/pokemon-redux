@@ -16,5 +16,4 @@ export default defineConfig({
       { find: "pages", replacement: path.resolve(__dirname, 'src/pages') },
     ]
   },
-  base:"/pokemon-redux/"
 })
