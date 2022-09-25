@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-    pokemonsList: []
+    pokemonsList: [],
+    isPending: false,
+    error: null,
 }
 
 const url = 'https://pokeapi.co/api/v2/';
@@ -18,13 +20,13 @@ export const getCollection = createAsyncThunk(
             const data = await itemResponse.json()
             return data
         }))
-        dispatch(payload.reducer(res))
+        return res
     }
 )
 
 export const getGeneration = createAsyncThunk(
     'pokemons/getGeneration',
-    async (payload, { rejectWithValue, dispatch }) => {
+    async (payload, { rejectWithValue }) => {
         const response = await fetch(url + payload.endPoint)
         const data = await response.json()
 
@@ -34,7 +36,7 @@ export const getGeneration = createAsyncThunk(
             const data = await itemResponse.json()
             return data
         }))
-        dispatch(payload.reducer(res))
+        return res
     }
 )
 
@@ -58,9 +60,31 @@ export const pokemonsSlice = createSlice({
         }
     },
     extraReducers: {
-        [getCollection.fulfilled]: () => console.log('get pokeomons: fullfield'),
-        [getCollection.pending]: () => console.log('get pokeomons: pending'),
-        [getCollection.rejected]: () => console.log('get pokeomons :rejected')
+        //get pokemons
+        [getCollection.pending]: (state) => {
+            console.log('pending');
+            state.isPending = true
+            state.error = null
+        },
+        [getCollection.fulfilled]: (state, action) => {
+            console.log('full');
+            state.pokemonsList = action.payload
+            state.isPending = false
+            state.error = null
+        },
+        [getCollection.rejected]: (state, action) => { },
+
+        // get generation 
+        [getGeneration.pending]: (state) => {
+            state.isPending = true
+            state.error = null
+        },
+        [getGeneration.fulfilled]: (state, action) => {
+            state.pokemonsList = action.payload
+            state.isPending = false
+            state.error = null
+        },
+        [getGeneration.rejected]: (state, action) => { }
     }
 })
 

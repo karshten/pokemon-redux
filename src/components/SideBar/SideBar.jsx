@@ -14,7 +14,7 @@ export const SideBar = () => {
     const handleFilterByGeneration = (e) => {
         const generation = e.target.value
         dispatch(setPokemons([]))
-        dispatch(getGeneration({endPoint: `generation/${generation}`, reducer: setPokemons}))
+        dispatch(getGeneration({endPoint: `generation/${generation}`}))
     }
 
     return (
