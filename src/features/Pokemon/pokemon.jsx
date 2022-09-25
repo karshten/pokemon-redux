@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
     pokemon: null,
+    isPending: false,
+    error: null
 }
 
 const url = 'https://pokeapi.co/api/v2/pokemon';
@@ -10,16 +12,21 @@ export const getPokemon = createAsyncThunk(
     'pokemon/getPokemon',
     async (payload, { rejectWithValue, dispatch }) => {
 
-        const response = await fetch(`${url}/${payload}`)
-        const data = await response.json()
+        try {
+            const response = await fetch(`${url}/${payload}`)
+            const data = await response.json()
 
-        const abilitiesUrl = data.abilities.map(item => {
-            return { url: item.ability.url, name: item.ability.name }
-        })
+            const abilitiesUrl = data.abilities.map(item => {
+                return { url: item.ability.url, name: item.ability.name }
+            })
 
-        dispatch(setPokemon(data))
-        dispatch(getPokemonsDescription(data.species.url))
-        dispatch(getPokemonAbilities(abilitiesUrl))
+            dispatch(getPokemonsDescription(data.species.url))
+            dispatch(getPokemonAbilities(abilitiesUrl))
+            return data
+            
+        } catch (err) {
+            return rejectWithValue(err.message)
+        }
     }
 )
 
@@ -51,7 +58,7 @@ export const getPokemonAbilities = createAsyncThunk(
 
             return {
                 description: `${abilitiesDescription[0].effect}  ${abilitiesDescription[0].short_effect}`,
-                name: item.name                
+                name: item.name
             }
         }))
 
@@ -71,9 +78,18 @@ export const pokemonSlice = createSlice({
         }
     },
     extraReducers: {
-        [getPokemon.fulfilled]: () => console.log('get pokeomons: fullfield'),
-        [getPokemon.pending]: () => console.log('get pokeomons: pending'),
-        [getPokemon.rejected]: () => console.log('get pokeomons :rejected')
+        [getPokemon.fulfilled]: (state, action) => {
+            state.pokemon = action.payload
+            state.isPending = false
+            state.error = null
+        },
+        [getPokemon.pending]: (state) => {
+            state.isPending = true
+            state.error = null
+        },
+        [getPokemon.rejected]: (state, action) => {
+            state.error = action.payload
+        }
     }
 })
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getPokemon } from '../../features/pokemon'
+import { getPokemon } from '../../features/Pokemon/pokemon'
 import { toggleSidebar } from '../../features/sideBar'
 import { PokemonItem } from '../../pages/Pokemons/PokemonItem'
 import { PokemonInfoItem } from './PokemonInfoItem'
@@ -22,7 +22,7 @@ export const Pokemon = () => {
   const [fullDescription, setFullDescription] = useState(false)
 
   const dispatch = useDispatch()
-  const pokemon = useSelector(state => state.pokemonDescription.pokemon)
+  const { pokemon, isPending, error } = useSelector(state => state.pokemonDescription)
 
   useEffect(() => {
     dispatch(toggleSidebar(false))
@@ -35,8 +35,8 @@ export const Pokemon = () => {
 
   return (
     <div className="pokemon">
-
-      {pokemon && pokemon.description && pokemon.Abilities ? <>
+      {error && <h3 className='error'>Something went wrong: <span>{error}</span></h3>}
+      {!isPending && pokemon?.description && pokemon?.Abilities ? <>
         <div className="pokemon__text-content">
           <Link to='/pokemons' className='pokemon__link-back'>
             <div className='pokemon__btn-back'>
