@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './scss/sideBar.scss'
 import arrow from 'icons/arrow.svg'
 import { useDispatch } from 'react-redux'
-import { getGeneration, setPokemons } from '../../features/pokemons'
+import { getGeneration, setPokemons } from '../../features/Pokemons/pokemons'
 
 const generations = [
     1, 2, 3, 4, 5, 6, 7, 8

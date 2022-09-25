@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import pokemonsSlice from "../features/pokemons";
+import pokemonsSlice from "../features/Pokemons/pokemons";
 import pokemonSlice from "../features/pokemon";
 import sideBarSlice from "../features/sideBar";
 

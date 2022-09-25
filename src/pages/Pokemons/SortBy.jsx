@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { sortByAlphabet, sortByAttack } from '../../features/pokemons'
+import { sortByAlphabet, sortByAttack } from '../../features/Pokemons/pokemons'
 import './scss/pokemons.scss'
 
 const sortByItems = [
