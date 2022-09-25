@@ -11,6 +11,7 @@ export const extraReducers = () => {
     }
 
     const extraRejected = (state, action) => {
+        state.isPending = false
         state.error = action.payload
     }
 

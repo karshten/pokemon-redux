@@ -19,12 +19,12 @@ export const PokemonsList = () => {
         <main>
             <div className="main-container">
                 <SortBy />
-                {error && <h3 className='error'>Something went wrong: {error}</h3>}
-                {!isPending ? <ul className='pokemons'>
-                    {pokemonsList?.length && pokemonsList?.map(pokemon =>
+                {error && <h3 className='error'>Something went wrong: <span>{error}</span></h3>}
+                {!isPending && pokemonsList?.length ? <ul className='pokemons'>
+                    {pokemonsList?.map(pokemon =>
                         <PokemonItem key={pokemon.name} pokemon={pokemon} />
                     )}
-                </ul> : <PokeLoader />}
+                </ul> : error ? '' : <PokeLoader />}
             </div>
         </main>
     )

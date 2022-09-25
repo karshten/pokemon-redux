@@ -36,7 +36,7 @@ export const Pokemon = () => {
   return (
     <div className="pokemon">
       {error && <h3 className='error'>Something went wrong: <span>{error}</span></h3>}
-      {!isPending && pokemon?.description && pokemon?.Abilities ? <>
+      {!isPending && pokemon ? <>
         <div className="pokemon__text-content">
           <Link to='/pokemons' className='pokemon__link-back'>
             <div className='pokemon__btn-back'>
@@ -69,7 +69,7 @@ export const Pokemon = () => {
         <div className="pokemon__side-preview">
           <PokemonItem pokemon={pokemon} />
         </div>
-      </> : <PokeLoader />}
+      </> : error ? '' : <PokeLoader />}
 
     </div>
   )

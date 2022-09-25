@@ -158,6 +158,17 @@ img {
     max-width: 1030px;
 }
 
+.error {
+    color: #C83C29;
+    font-size: 20px;
+}
+
+.error span {
+    color: #C83C29;
+    font-size: 20px;
+    font-weight: 700;
+}
+
 :root {
     --black: #121212;
     --gray: #3F3F3F;

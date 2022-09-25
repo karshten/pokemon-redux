@@ -58,13 +58,13 @@ export const pokemonsSlice = createSlice({
         setPokemons: (state, action) => {
             state.pokemonsList = action.payload
         },
-        sortByAttack: (state, action) => {
+        sortByAttack: (state) => {
             state.pokemonsList = [...state.pokemonsList].sort((a, b) =>
                 b.stats.find(item => item.stat.name === 'attack').base_stat
                 - a.stats.find(item => item.stat.name === 'attack').base_stat
             )
         },
-        sortByAlphabet: (state, action) => {
+        sortByAlphabet: (state) => {
             state.pokemonsList = [...state.pokemonsList].sort((a, b) => {
                 return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
             })

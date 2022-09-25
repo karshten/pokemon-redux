@@ -88,6 +88,7 @@ export const pokemonSlice = createSlice({
             state.error = null
         },
         [getPokemon.rejected]: (state, action) => {
+            state.isPending = false
             state.error = action.payload
         }
     }
