@@ -1,0 +1,26 @@
+.sideBar {
+    &__type {
+        margin-top: 32px;
+    }
+
+    &__type-checkbox {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        & p {
+            color: var(--gray);
+        }
+
+        & input {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+
+            &[type=checkbox] {
+                accent-color: var(--black);
+            }
+        }
+    }
+}

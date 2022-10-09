@@ -1,0 +1,67 @@
+.sideBar {
+    padding: 32px 0;
+    width: 360px;
+    min-height: 100vh;
+    border-right: 6px solid var(--black);
+    position: relative;
+
+    & .pokeball {
+        position: absolute;
+        right: -28px;
+        top: -30px;
+        width: 37px;
+        height: 37px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 6px solid var(--black);
+    }
+
+    &__content {
+        width: 220px;
+        margin-left: auto;
+        margin-right: 60px;
+    }
+
+    &__toggle {
+        z-index: 200;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        & h3 {
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        & img {
+            z-index: 10000;
+            cursor: pointer;
+        }
+
+        & .open {
+            transform: rotate(0);
+        }
+
+        & .closed {
+            transform: rotate(180deg);
+        }
+    }
+
+    @keyframes dropDownOpen {
+        0% {
+            opacity: 0;
+            transform: translateY(-100px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .openNav {
+        transform: translateY(0);
+        animation: dropDownOpen .3s ease;
+    }
+}
